@@ -1,9 +1,8 @@
-#search for mobile apps that supports active transport in Apple App Store
+//search for mobile apps that supports active transport in Apple App Store
 
 scraper = require('app-store-scraper'); // Import app store scraper 
 converter = require('json-2-csv');
 fs = require('fs'); //Import the module to use files
-// Change directory to write in the Jupyter notebook repository
 
 //Function to translate the result of the request in CSV
 //and write it into the file resultScrapingRequest.txt
@@ -69,6 +68,12 @@ csv2file = function(msg){
   developerId, developer, developerUrl, developerWebsite, score, reviews, currentVersionScore,
   currentVersionReviews, screenshots, ipadScreenshots, appletvScreenshots, supportedDevices */
 
+//List of country searched in :
+//us
+//fr
+//Others
+
+//Searches for the exact string :
 // "active transport"
 // "active transportation"
 // "active commute"
@@ -79,12 +84,13 @@ csv2file = function(msg){
 // "travel survey"
 
 scraper.search({
-    term: "\"travel survey\"",  //search for exact phrasing 
+    term: "\"travel survey\"",  //search for exact phrasing using \"string\"
     country: "us",
     num: 250,
     fullDetail: true
   }).then(csv2file, console.log);
 
+//Search for keywords :
 // transport walk bike
 // transport walking biking
 // transport cycle bicycle
