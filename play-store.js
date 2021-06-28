@@ -3,16 +3,6 @@
 scraper = require('google-play-scraper'); // Import play store scraper 
 converter = require('json-2-csv');
 fs = require('fs'); //Import the module to use files
-process.chdir("C:\\Users\\jungg\\Jupyter Notebooks");// Change directory to write in the Jupyter notebook repository
-
-//unused
-//Define the function to write in the file
-//<!> It always write in the same file, but not erase it.
-json2file = function(msg) {
-    fs.appendFile("resultScrapingRequest.txt", JSON.stringify(msg, null, 2), function(err){
-        if(err){ return truelog(err);}
-    });
-};
 
 //Function to translate the result of the request in CSV
 //and write it into the file resultScrapingRequest.txt
@@ -72,7 +62,15 @@ csv2file = function(msg){
 // Documentation for the scraper module :
 // https://www.geeksforgeeks.org/data-scraping-for-android-apps-using-google-play-scraper-in-node-js/
 
+//List of country we search in
+//us
+//fr
+//br
+//sa
+//th
+//au
 
+//List of search by exact string
 // "active transport"
 // "active transportation"
 // "active commute"
@@ -83,7 +81,7 @@ csv2file = function(msg){
 // "travel survey"
 
   scraper.search({
-    term: "\"travel survey\"", //search exact phrasing
+    term: "\"travel survey\"", //search exact phrasing using \"string\"
     country: "th",
     num: 250,
     fullDetail: true
