@@ -8,8 +8,6 @@ fs = require('fs'); //Import the module to use files
 //and write it into the file resultScrapingRequest.txt
 csv2file = function(msg){
     msg.forEach(element => {
-        //Remove the fields that may contain new line symbols.
-        // Might not be enough
         delete element['description'];
         delete element['descriptionHTML'];
         delete element['minInstalls'];
