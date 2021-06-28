@@ -3,7 +3,7 @@
 scraper = require('app-store-scraper'); // Import app store scraper 
 converter = require('json-2-csv');
 fs = require('fs'); //Import the module to use files
-process.chdir("C:\\Users\\jungg\\Jupyter Notebooks");// Change directory to write in the Jupyter notebook repository
+// Change directory to write in the Jupyter notebook repository
 
 //Function to translate the result of the request in CSV
 //and write it into the file resultScrapingRequest.txt
