@@ -1,8 +1,9 @@
 //search for mobile apps that supports active transport in Apple App Store
 
-scraper = require('app-store-scraper'); // Import app store scraper 
-converter = require('json-2-csv');
-fs = require('fs'); //Import the module to use files
+const { default: scraper } = await import("app-store-scraper"); // Import app store scraper 
+const { default: converter } = await import("json-2-csv");
+const { default: fs } = await import("fs"); //Import the module to use files
+
 
 //Function to translate the result of the request in CSV
 //and write it into the file resultScrapingRequest.txt
@@ -52,14 +53,10 @@ csv2file = function(msg){
         delete element['recentChanges'];
         delete element['editorsChoice']*/
     }); 
-    converter.json2csv(msg,(err,csv)=> {
-        if(err){
-            throw err;
-        }
-        fs.appendFile("resultScrapingRequest.txt", csv, function(err){
-            if(err){ return truelog(err);}
-        });
-    });
+    csv = converter.json2csv(msg, {delimiter : {field : '||'}})
+    fs.appendFile("resultScrapingRequest.txt", csv, (err)=>{
+            if(err){ console.log("Error in appendFile."); return truelog(err);}
+     	});
     console.log("Request fullfield.");
 };
 
