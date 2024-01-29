@@ -45,7 +45,7 @@ csv2file = function(msg){
         delete element['recentChanges'];
         delete element['editorsChoice']
     });
-    csv = converter.json2csv(msg)
+    csv = converter.json2csv(msg, {delimiter : {field : '||'}})
     fs.appendFile("resultScrapingRequest.txt", csv, (err)=>{
             if(err){ console.log("Error in appendFile."); return truelog(err);}
      	});
