@@ -58,14 +58,7 @@ csv2file = function(msg){
 //au
 
 //List of search by exact string
-// "active transport"
-// "active transportation"
-// "active commute"
-// "active travel"
-// "active mobility"
-// "travel behavior"
-// "travel behaviour"
-// "travel survey"
+// none
 
   scraper.search({
     term: "\"travel survey\"", //search exact phrasing using \"string\"
@@ -74,18 +67,16 @@ csv2file = function(msg){
     fullDetail: true
   }).then(csv2file, console.log);
 
-// transport walk bike
-// transport walking biking
-// transport cycle bicycle
-// transport cycling bicycling
-// transportation walk bike
-// transportation walking biking
-// transportation cycle bicycle
-// trasnportation cycling bicycling
+// transport walk pedestrian
+// transport bike bicycle cycle
+// active sustainable transport
+// active sustainable commute
+// active sustainable travel
+// active sustainable mobility
 
   scraper.search({
-    term: "transportation cycling bicycling",
-    country: "th",
+    term: "transport walk pedestrian",
+    country: "au",
     num: 250,
     fullDetail: true
   }).then(csv2file, console.log);
