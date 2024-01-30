@@ -8,42 +8,35 @@ const { default: fs } = await import("fs"); //Import the module to use files
 //and write it into the file resultScrapingRequest.txt
 csv2file = function(msg){
     msg.forEach(element => {
-        delete element['description'];
         delete element['descriptionHTML'];
-        delete element['minInstalls'];
-        delete element['maxInstalls'];
-        delete element['score'];
-        delete element['version'];
-        delete element['reviews'];
-        delete element['ratings'];
-        delete element['histogram'];
-        delete element['free'];
+        delete element['scoreText'];
+        delete element['histogram.1'];
+        delete element['histogram.2'];
+        delete element['histogram.3'];
+        delete element['histogram.4'];
+        delete element['histogram.5'];
+        delete element['originalPrice'];
+        delete element['discountEndDate'];
         delete element['currency'];
         delete element['priceText'];
         delete element['offersIAP'];
         delete element['IAPRange'];
-        delete element['size'];
         delete element['androidVersion'];
         delete element['androidVersionText'];
+        delete element['androidMaxVersion'];
         delete element['developerId'];
-        delete element['developerEmail'];
-        delete element['privacyPolicy'];
+        delete element['developerAddress'];
         delete element['developerInternalID'];
-        delete element['genreId'];
-        delete element['familyGenre'];
-        delete element['familyGenreId'];
         delete element['icon'];
         delete element['headerImage'];
         delete element['screenshots'];
         delete element['video'];
-        delete element['videoImage'];
-        delete element['contentRating'];
-        delete element['contentRatingDescription'];
+        delete element['previewVideo'];
+        delete element['preregister'];
+        delete element['earlyAccessEnabled'];
         delete element['adSupported'];
-        delete element['comments'];
-        delete element['developerAddress'];
-        delete element['recentChanges'];
-        delete element['editorsChoice']
+        delete element['videoImage'];
+        delete element['isAvailableInPlayPass']
     });
     csv = converter.json2csv(msg, {delimiter : {field : '||'}})
     fs.appendFile("resultScrapingRequest.txt", csv, (err)=>{
