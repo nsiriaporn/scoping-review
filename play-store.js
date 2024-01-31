@@ -31,6 +31,7 @@ csv2file = function(msg){
         delete element['headerImage'];
         delete element['screenshots'];
         delete element['video'];
+        delete element['categories'];        
         delete element['previewVideo'];
         delete element['preregister'];
         delete element['earlyAccessEnabled'];
@@ -50,29 +51,28 @@ csv2file = function(msg){
 // https://www.geeksforgeeks.org/data-scraping-for-android-apps-using-google-play-scraper-in-node-js/
 
 //List of country we search in
-//us
-//fr
+//au
 //br
+//fr
 //sa
 //th
-//au
+//us
 
 //List of search by exact string
-// none
+// active transportation
+// active mobility
+// active travel
+// active commute - might not work for exact string
 
   scraper.search({
     term: "\"travel survey\"", //search exact phrasing using \"string\"
-    country: "th",
+    country: "au",
     num: 250,
     fullDetail: true
   }).then(csv2file, console.log);
 
-// transport walk pedestrian
-// transport bike bicycle cycle
-// active sustainable transport
-// active sustainable commute
-// active sustainable travel
-// active sustainable mobility
+// transportation walk pedestrian
+// transportation bike bicycle cycle
 
   scraper.search({
     term: "transport walk pedestrian",
