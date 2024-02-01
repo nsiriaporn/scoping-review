@@ -71,8 +71,10 @@ csv2file = function(msg){
     fullDetail: true
   }).then(csv2file, console.log);
 
-// transportation walk pedestrian
-// transportation bike bicycle cycle
+// transportation walk
+// transportation bicycle
+// commute walk
+// commute bicycle
 
   scraper.search({
     term: "transport walk pedestrian",
