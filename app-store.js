@@ -53,8 +53,10 @@ scraper.search({
 // active commute
 // active travel
 // active mobility
-// transportation walk pedestrian
-// transportation bike bicycle cycle
+// transportation walk
+// transportation bicycle
+// commute walk
+// commute bicycle
 
 scraper.search({
     term: "active transportation",
