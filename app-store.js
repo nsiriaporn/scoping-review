@@ -15,43 +15,9 @@ csv2file = function(msg){
         delete element['genreIds'];
         delete element['primaryGenreId'];
         delete element['size'];
-        delete element['requiredOsVersion'];
-        delete element['releaseNotes'];
-        delete element['version'];
-        delete element['currency'];
-        delete element['free'];
-        delete element['reviews'];
-        delete element['currentVersionScore'];
-        delete element['currentVersionReviews'];
         delete element['screenshots'];
-        delete element['score'];
-        delete element['developerUrl'];
-        delete element['supportedDevices'];
         delete element['ipadScreenshots'];
         delete element['appletvScreenshots'];
-        element['description'] = element['description'].replace(/\r?\n|\r/g, " ");  //app descriptions include new lines, this line is to take out the new lines
-        /*
-        delete element['androidVersionText'];
-        delete element['developerId'];
-        delete element['description'];
-        delete element['developerEmail'];
-        delete element['privacyPolicy'];
-        delete element['developerInternalID'];
-        delete element['genreId'];
-        delete element['familyGenre'];
-        delete element['familyGenreId'];
-        delete element['icon'];
-        delete element['headerImage'];
-        delete element['screenshots'];
-        delete element['video'];
-        delete element['videoImage'];
-        delete element['contentRating'];
-        delete element['contentRatingDescription'];
-        delete element['adSupported'];
-        delete element['comments'];
-        delete element['developerAddress'];
-        delete element['recentChanges'];
-        delete element['editorsChoice']*/
     }); 
     csv = converter.json2csv(msg, {delimiter : {field : '||'}})
     fs.appendFile("resultScrapingRequest.txt", csv, (err)=>{
@@ -66,19 +32,18 @@ csv2file = function(msg){
   currentVersionReviews, screenshots, ipadScreenshots, appletvScreenshots, supportedDevices */
 
 //List of country searched in :
-//us
+//au
+//br
 //fr
-//Others
+//sa
+//th
+//us
 
 //Searches for the exact string :
-// "active transport"
 // "active transportation"
 // "active commute"
 // "active travel"
 // "active mobility"
-// "travel behavior"
-// "travel behaviour"
-// "travel survey"
 
 scraper.search({
     term: "\"travel survey\"",  //search for exact phrasing using \"string\"
@@ -88,14 +53,8 @@ scraper.search({
   }).then(csv2file, console.log);
 
 //Search for keywords :
-// transport walk bike
-// transport walking biking
-// transport cycle bicycle
-// transport cycling bicycling
-// transportation walk bike
-// transportation walking biking
-// transportation cycle bicycle
-// trasnportation cycling bicycling
+// transportation walk pedestrian
+// transportation bike bicycle cycle
 
 scraper.search({
     term: "transportation cycle bicycle",
