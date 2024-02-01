@@ -39,26 +39,26 @@ csv2file = function(msg){
 //th
 //us
 
-//Searches for the exact string :
-// "active transportation"
-// "active commute"
-// "active travel"
-// "active mobility"
+//App store does not do extract string search --not using--
 
 scraper.search({
     term: "\"travel survey\"",  //search for exact phrasing using \"string\"
-    country: "us",
+    country: "au",
     num: 250,
     fullDetail: true
   }).then(csv2file, console.log);
 
 //Search for keywords :
+// active transportation
+// active commute
+// active travel
+// active mobility
 // transportation walk pedestrian
 // transportation bike bicycle cycle
 
 scraper.search({
-    term: "transportation cycle bicycle",
-    country: "us",
+    term: "active transportation",
+    country: "au",
     num: 250,
     fullDetail: true
   }).then(csv2file, console.log);
